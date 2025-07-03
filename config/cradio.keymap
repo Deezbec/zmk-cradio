@@ -99,7 +99,7 @@
 &kp F1     &kp F2     &kp F3     &kp F4         &kp F5     &kp F6  &kp F7  &kp F8  &kp F9   &kp F10
 &kp LWIN   &kp LALT   &kp LCTRL  &kp LSHFT      &kp TAB    &trans  &trans  &trans  &kp F11  &kp F12
 &kp RSHFT  &kp RCTRL  &kp RALT   &kp RIGHT_GUI  &trans     &trans  &trans  &trans  &trans   &trans
-                                 &trans         &trans     &trans  &mo 4
+                                 &trans         &trans     &mo 4   &mo 4
             >;
         };
 
@@ -114,7 +114,7 @@
 
         mouse_layer {
             bindings = <
-&trans  &trans          &mmv MOVE_UP    &trans           &trans    &trans  &trans     &trans     &trans     &trans
+&trans  &trans          &mmv MOVE_UP    &kp M            &trans    &trans  &trans     &trans     &trans     &trans
 &trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans    &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans
 &trans  &trans          &trans          &trans           &trans    &trans  &trans     &trans     &trans     &trans
                                         &mo 3            &trans    &trans  &trans
