@@ -11,7 +11,8 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20
 #include <dt-bindings/zmk/pointing.h>
 
-// Индексы слоёв
+// Индексы слоёв (для &mo можно использовать define,
+// но для &to нужны literal-числа)
 #define BASE        0
 #define GAME        1
 #define GAME_EXTRA  2
@@ -146,7 +147,7 @@
                 &kp M  &kp Q  &kp W  &kp E  &kp R    &none  &none  &kp UP  &none  &none
                 &kp LSHFT  &kp A  &kp S  &kp D  &kp F    &none  &kp LEFT  &kp DOWN  &kp RIGHT  &none
                 &mo LOWER  &kp Z  &kp X  &kp C  &kp V    &none  &mkp MB1  &mkp MB3  &mkp MB2  &kp C_SRL
-                              &none  &mo GAME_EXTRA  &kp SPACE    &to BASE  &mo GAME_EXTRA
+                              &none  &mo GAME_EXTRA  &kp SPACE    &to 0  &mo GAME_EXTRA
             >;
         };
 
@@ -174,7 +175,7 @@
             display-name = "Lower Extra";
             bindings = <
                 &kp INS  &none  &none  &kp C_MPLY  &kp C_MPRV    &kp KP_SLASH  &kp KP_N7  &kp KP_N8  &kp KP_N9  &kp KP_ASTERISK
-                &trans  &kp PG_DN  &kp PG_UP  &kp C_CAPS  &to GAME    &kp KP_MINUS  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS
+                &trans  &kp PG_DN  &kp PG_UP  &kp C_CAPS  &to 1    &kp KP_MINUS  &kp KP_N4  &kp KP_N5  &kp KP_N6  &kp KP_PLUS
                 &kp C_SLEP  &kp HOME  &kp END  &kp C_VOL_DN  &kp C_VOL_UP    &kp KP_N0  &kp KP_N1  &kp KP_N2  &kp KP_N3  &kp KP_DOT
                               &none  &kp C_MNXT  &kp SPACE    &kp KP_NUM  &kp RALT
             >;
@@ -186,7 +187,7 @@
                 &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6  &kp F7  &kp F8  &kp F9  &kp F10
                 &mo ADJUST  &kp LALT  &kp LCTRL  &none  &kp TAB    &kp F11  &kp RSHFT  &kp RCTRL  &kp RALT  &kp RGUI
                 &kp LSHFT  &kp LCTRL  &kp ESC  &kp K_APP  &kp LGUI    &kp F12  &mkp MB1  &mkp MB3  &mkp MB2  &kp C_SRL
-                              &none  &none  &to BASE    &kp LSHFT  &kp SPACE
+                              &none  &none  &to 0    &kp LSHFT  &kp SPACE
             >;
         };
 
