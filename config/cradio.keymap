@@ -133,7 +133,7 @@
             bindings = <
                 &kp M  &kp Q  &kp W  &kp E  &kp R    &none  &none  &kp UP  &none  &none
                 &kp LSHFT  &kp A  &kp S  &kp D  &kp F    &none  &kp LEFT  &kp DOWN  &kp RIGHT  &none
-                &mo LOWER  &kp Z  &kp X  &kp C  &kp V    &none  &mkp LCLK  &mkp MCLK  &mkp RCLK  &kp K_SCRL
+                &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
                               &mo GAME_EXTRA  &kp SPACE    &to 0  &mo GAME_EXTRA
             >;
         };
