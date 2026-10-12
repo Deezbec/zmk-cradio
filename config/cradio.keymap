@@ -11,34 +11,6 @@
 
 / {
     // ==========================================================
-    // LEADER KEY (модуль zmk-leader-key от urob)
-    // ==========================================================
-    behaviors {
-        leader: leader {
-            compatible = "zmk,behavior-leader-key";
-            #binding-cells = <0>;
-
-            // Leader, V -> Copy/Paste
-            copy_paste {
-                sequence = <V>;
-                bindings = <&macro_copy_paste>;
-            };
-
-            // Leader, D -> Save/Close
-            save_close {
-                sequence = <D>;
-                bindings = <&macro_save_close>;
-            };
-
-            // Leader, S -> Language swap
-            lang_swap {
-                sequence = <S>;
-                bindings = <&macro_lang_swap>;
-            };
-        };
-    };
-
-    // ==========================================================
     // МАКРОСЫ (для Leader Key)
     // ==========================================================
     macros {
