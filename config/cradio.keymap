@@ -10,7 +10,6 @@
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1500
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20
 #include <dt-bindings/zmk/pointing.h>
-#include <dt-bindings/zmk/mouse.h>
 
 // Индексы слоёв
 #define BASE        0
@@ -134,7 +133,7 @@
             bindings = <
                 &kp M  &kp Q  &kp W  &kp E  &kp R    &none  &none  &kp UP  &none  &none
                 &kp LSHFT  &kp A  &kp S  &kp D  &kp F    &none  &kp LEFT  &kp DOWN  &kp RIGHT  &none
-                &mo LOWER  &kp Z  &kp X  &kp C  &kp V    &none  &mkp MB1  &mkp MB3  &mkp MB2  &kp K_SCRL
+                &mo LOWER  &kp Z  &kp X  &kp C  &kp V    &none  &mkp LCLK  &mkp MCLK  &mkp RCLK  &kp K_SCRL
                               &mo GAME_EXTRA  &kp SPACE    &to 0  &mo GAME_EXTRA
             >;
         };
@@ -174,7 +173,7 @@
             bindings = <
                 &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6  &kp F7  &kp F8  &kp F9  &kp F10
                 &mo ADJUST  &kp LEFT_ALT  &kp LEFT_CONTROL  &none  &kp TAB    &kp F11  &kp RIGHT_SHIFT  &kp RIGHT_CONTROL  &kp RIGHT_ALT  &kp RIGHT_GUI
-                &kp LSHFT  &kp LCTRL  &kp ESCAPE  &kp K_CMENU  &kp LEFT_GUI    &kp F12  &mkp MB1  &mkp MB3  &mkp MB2  &kp K_SCRL
+                &kp LSHFT  &kp LCTRL  &kp ESCAPE  &kp K_CMENU  &kp LEFT_GUI    &kp F12  &mkp LCLK  &mkp MCLK  &mkp RCLK  &kp K_SCRL
                               &none  &to 0    &kp LSHFT  &kp SPACE
             >;
         };
@@ -194,7 +193,7 @@
             bindings = <
                 &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
                 &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-                &trans  &trans  &trans  &trans  &trans    &trans  &mkp MB1  &mkp MB3  &mkp MB2  &kp K_SCRL
+                &trans  &trans  &trans  &trans  &trans    &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &kp K_SCRL
                               &trans  &trans    &trans  &trans
             >;
         };
