@@ -1,4 +1,7 @@
-// Все комбо + &mkp
+// Copyright (c) 2022 The ZMK Contributors
+// SPDX-License-Identifier: MIT
+// Адаптировано под Charybdis (перенос с QMK keymap.c)
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
@@ -160,9 +163,9 @@
         adjust {
             display-name = "Adjust";
             bindings = <
-                &none  &none  &none  &none  &none    &none  &none  &none  &sys_reset  &bootloader
-                &none  &none  &none  &none  &none    &none  &none  &none  &trans  &none
-                &none  &none  &none  &none  &none    &none  &none  &none  &none  &none
+                &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4 &none  &none  &none &sys_reset  &bootloader
+                &bt BT_CLR  &bt BT_CLR_ALL  &out OUT_TOG  &none  &none    &none  &none  &none  &none  &none
+                &none  &bt BT_PRV &bt BT_NXT  &none  &none    &none  &none  &none  &none  &none
                               &none  &none    &none  &none
             >;
         };
