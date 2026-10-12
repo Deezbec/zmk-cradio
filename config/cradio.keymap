@@ -1,6 +1,7 @@
 // Copyright (c) 2022 The ZMK Contributors
 // SPDX-License-Identifier: MIT
 // Адаптировано под Charybdis (перенос с QMK keymap.c)
+// + Leader Key
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
@@ -9,6 +10,73 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
+    // ==========================================================
+    // LEADER KEY (модуль zmk-leader-key от urob)
+    // ==========================================================
+    behaviors {
+        leader: leader {
+            compatible = "zmk,behavior-leader-key";
+            #binding-cells = <0>;
+
+            // Leader, V -> Copy/Paste
+            copy_paste {
+                sequence = <V>;
+                bindings = <&macro_copy_paste>;
+            };
+
+            // Leader, D -> Save/Close
+            save_close {
+                sequence = <D>;
+                bindings = <&macro_save_close>;
+            };
+
+            // Leader, S -> Language swap
+            lang_swap {
+                sequence = <S>;
+                bindings = <&macro_lang_swap>;
+            };
+        };
+    };
+
+    // ==========================================================
+    // МАКРОСЫ (для Leader Key)
+    // ==========================================================
+    macros {
+        // Leader, V => Ctrl+C, Alt+Tab, Enter, Ctrl+V, Alt+Tab
+        macro_copy_paste: macro_copy_paste {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <
+                &kp LCTRL &kp C
+                &kp LALT &kp TAB
+                &kp ENTER
+                &kp LCTRL &kp V
+                &kp LALT &kp TAB
+            >;
+        };
+
+        // Leader, D => Ctrl+S, Enter, Ctrl+W
+        macro_save_close: macro_save_close {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <
+                &kp LCTRL &kp S
+                &kp ENTER
+                &kp LCTRL &kp W
+            >;
+        };
+
+        // Leader, S => Win+Space
+        macro_lang_swap: macro_lang_swap {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LGUI &kp SPACE>;
+        };
+    };
+
+    // ==========================================================
+    // КОМБО
+    // ==========================================================
     combos {
         compatible = "zmk,combos";
 
@@ -97,6 +165,9 @@
         };
     };
 
+    // ==========================================================
+    // KEYMAP
+    // ==========================================================
     keymap {
         compatible = "zmk,keymap";
 
@@ -154,7 +225,7 @@
             display-name = "Upper";
             bindings = <
                 &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6  &kp F7  &kp F8  &kp F9  &kp F10
-                &mo 6  &kp LEFT_ALT  &kp LEFT_CONTROL  &none  &kp TAB    &kp F11  &kp RIGHT_SHIFT  &kp RIGHT_CONTROL  &kp RIGHT_ALT  &kp RIGHT_GUI
+                &mo 6  &kp LEFT_ALT  &kp LEFT_CONTROL  &leader  &kp TAB    &kp F11  &kp RIGHT_SHIFT  &kp RIGHT_CONTROL  &kp RIGHT_ALT  &kp RIGHT_GUI
                 &kp LSHFT  &kp LCTRL  &kp ESCAPE  &kp K_CMENU  &kp LEFT_GUI    &kp F12  &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans
                               &none  &to 0    &kp LSHFT  &kp SPACE
             >;
@@ -163,9 +234,9 @@
         adjust {
             display-name = "Adjust";
             bindings = <
-                &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4 &none  &none  &none &sys_reset  &bootloader
-                &bt BT_CLR  &bt BT_CLR_ALL  &out OUT_TOG  &none  &none    &none  &none  &none  &none  &none
-                &none  &bt BT_PRV &bt BT_NXT  &none  &none    &none  &none  &none  &none  &none
+                &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &bt BT_NXT  &bt BT_PRV  &bt BT_CLR  &bt BT_CLR_ALL  &out OUT_TOG
+                &sys_reset  &bootloader  &none  &none  &none    &none  &none  &none  &none  &none
+                &none  &none  &none  &none  &none    &none  &none  &none  &none  &none
                               &none  &none    &none  &none
             >;
         };
