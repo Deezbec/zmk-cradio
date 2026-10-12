@@ -11,7 +11,7 @@
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 20
 #include <dt-bindings/zmk/pointing.h>
 
-// Индексы слоёв (для читаемости &mo)
+// Индексы слоёв
 #define BASE        0
 #define GAME        1
 #define GAME_EXTRA  2
@@ -23,7 +23,6 @@
 
 / {
     behaviors {
-        // Hold-tap из оригинального файла (оставлен без изменений)
         ht: hold_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -35,8 +34,6 @@
         };
     };
 
-    // Conditional layers: если активны LOWER и UPPER -> включается ADJUST
-    // (аналог tri_layer, но с вашими индексами)
     conditional_layers {
         compatible = "zmk,conditional-layers";
         adjust_layer {
@@ -45,15 +42,10 @@
         };
     };
 
-    // ==========================================================
-    // КОМБО (перенос из QMK)
-    // ВАЖНО: key-positions нужно подстроить под вашу физическую
-    // раскладку Charybdis. Ниже — примерные позиции.
-    // ==========================================================
     combos {
         compatible = "zmk,combos";
 
-        // --- Цифры на слое LOWER ---
+        // Цифры на LOWER
         combo_6 {
             timeout-ms = <50>;
             key-positions = <1 3>;
@@ -85,7 +77,7 @@
             bindings = <&kp N0>;
         };
 
-        // --- F-клавиши на слое UPPER ---
+        // F-клавиши на UPPER
         combo_f6 {
             timeout-ms = <50>;
             key-positions = <1 3>;
@@ -129,22 +121,19 @@
             bindings = <&kp F12>;
         };
 
-        // --- Быстрый Adjust: Shift + Space на BASE ---
+        // Быстрый ADJUST: Shift + Space
         combo_to_adjust {
             timeout-ms = <50>;
-            key-positions = <33 34>; // Позиции LSHFT и SPACE — уточните!
+            key-positions = <33 34>;
             layers = <BASE>;
             bindings = <&mo ADJUST>;
         };
     };
 
-    // ==========================================================
-    // KEYMAP
-    // ==========================================================
     keymap {
         compatible = "zmk,keymap";
 
-        // ---------- Слой 0: BASE ----------
+        // ---------- BASE ----------
         base {
             display-name = "Base";
             bindings = <
@@ -155,7 +144,7 @@
             >;
         };
 
-        // ---------- Слой 1: GAME ----------
+        // ---------- GAME ----------
         game {
             display-name = "Game";
             bindings = <
@@ -166,7 +155,7 @@
             >;
         };
 
-        // ---------- Слой 2: GAME_EXTRA ----------
+        // ---------- GAME_EXTRA ----------
         game_extra {
             display-name = "Game Extra";
             bindings = <
@@ -177,7 +166,7 @@
             >;
         };
 
-        // ---------- Слой 3: LOWER ----------
+        // ---------- LOWER ----------
         lower {
             display-name = "Lower";
             bindings = <
@@ -188,7 +177,7 @@
             >;
         };
 
-        // ---------- Слой 4: LOWER_EXTRA ----------
+        // ---------- LOWER_EXTRA ----------
         lower_extra {
             display-name = "Lower Extra";
             bindings = <
@@ -199,7 +188,7 @@
             >;
         };
 
-        // ---------- Слой 5: UPPER ----------
+        // ---------- UPPER ----------
         upper {
             display-name = "Upper";
             bindings = <
@@ -210,7 +199,7 @@
             >;
         };
 
-        // ---------- Слой 6: ADJUST ----------
+        // ---------- ADJUST ----------
         adjust {
             display-name = "Adjust";
             bindings = <
@@ -221,7 +210,7 @@
             >;
         };
 
-        // ---------- Слой 7: POINTER ----------
+        // ---------- POINTER ----------
         pointer {
             display-name = "Pointer";
             bindings = <
