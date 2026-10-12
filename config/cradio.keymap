@@ -29,7 +29,8 @@
             bindings = <&kp N8>;
         };
         combo_9 {
-            timeout-ms = <3 4>;
+            timeout-ms = <50>;
+            key-positions = <3 4>;
             layers = <3>;
             bindings = <&kp N9>;
         };
@@ -60,7 +61,8 @@
             bindings = <&kp F8>;
         };
         combo_f9 {
-            timeout-ms = <3 4>;
+            timeout-ms = <50>;
+            key-positions = <3 4>;
             layers = <5>;
             bindings = <&kp F9>;
         };
